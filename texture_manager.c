@@ -20,7 +20,7 @@ void	load_image(t_p *p, int *texture, char *path, t_image *img)
 	img->img_ptr = mlx_xpm_file_to_image(p->mlx_ptr,
 	path, &img->img_w, &img->img_h);
 	if (!img->img_ptr)
-		error_manager(0,p);
+		error_manager(21,p);
 	img->img_data = (int *)mlx_get_data_addr(img->img_ptr,
 	&img->bpp, &img->size_line, &img->endian);
 	y = -1;

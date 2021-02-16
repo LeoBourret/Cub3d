@@ -16,7 +16,7 @@ char	**gen_error_list(void)
 {
 	char **error;
 
-	if (!(error = malloc(sizeof(char *) * 22)))
+	if (!(error = malloc(sizeof(char *) * 23)))
 		return (NULL);
 	error[0] = "Error: malloc can't allocate the memory\n";
 	error[1] = "Error: resolution not set or not setp properly. Resolution can only contain numbers and spaces\n";
@@ -39,7 +39,8 @@ char	**gen_error_list(void)
 	error[18] = "Error: too many argument\n";
 	error[19] = "Error: cannot read file\n";
 	error[20] = "Error: cannot write in save file\n";
-	error[21] = NULL;
+	error[21] = "Error: cannot load xpm file\n";
+	error[22] = NULL;
 	return (error);
 }
 
