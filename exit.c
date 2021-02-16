@@ -1,0 +1,101 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jurichar <jurichar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/19 10:21:13 by lebourre          #+#    #+#             */
+/*   Updated: 2021/02/10 11:59:44 by jurichar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
+
+void	exit_all(t_p *p)
+{
+	free_prog(p);
+	exit(0);
+}
+
+void	free_rest_rest_rest(t_p *par)
+{
+	int i;
+
+	i = -1;
+	if (par->buf)
+	{
+		while (++i < par->res.height)
+			free(par->buf[i]);
+		free(par->buf);
+	}
+	i = -1;
+	if (par->texture)
+	{
+		while (++i < par->nb_texture)
+			free(par->texture[i]);
+		free(par->texture);
+	}
+	if (par->save)
+		free(par->save);
+}
+
+void	free_rest_rest(t_p *par)
+{
+	if (par->z_buf)
+		free(par->z_buf);
+	if (par->map_sp)
+		free(par->map_sp);
+	if (par->sprite_dist)
+		free(par->sprite_dist);
+	if (par->sprite_order)
+		free(par->sprite_order);
+	free_rest_rest_rest(par);
+}
+
+void	free_rest(t_p *par)
+{
+	if (par->info->r)
+		free(par->info->r);
+	if (par->info->no)
+		free(par->info->no);
+	if (par->info->so)
+		free(par->info->so);
+	if (par->info->we)
+		free(par->info->we);
+	if (par->info->ea)
+		free(par->info->ea);
+	if (par->info->s)
+		free(par->info->s);
+	if (par->info->s2)
+		free(par->info->s2);
+	if (par->info->f)
+		free(par->info->f);
+	if (par->info->c)
+		free(par->info->c);
+	if (par->info)
+		free(par->info);
+	free_rest_rest(par);
+}
+
+void	free_prog(t_p *par)
+{
+	int i;
+
+	i = -1;
+	if (par->map_buffer)
+	{
+		while (par->map_buffer[++i]
+		&& (is_identifier(par->map_buffer[i]) || par->map_buffer[i][0] == '\0'))
+			free(par->map_buffer[i]);
+		free(par->map_buffer);
+	}
+	i = -1;
+	if (par->map)
+	{
+		while (++i < par->info->height)
+			free(par->map[i]);
+		free(par->map);
+	}
+	free_rest(par);
+}
