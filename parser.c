@@ -6,7 +6,7 @@
 /*   By: jurichar <jurichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 16:49:10 by lebourre          #+#    #+#             */
-/*   Updated: 2021/02/08 10:21:30 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/02/16 15:44:07 by jurichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int		manage_map(int fd, t_p *par, int i)
 	if (get_next_line(fd, &par->map_buffer[i]) < 0)
 		return (error_manager(19, par));
 	else
-		par->map_buffer[i + 1] = NULL;
+		par->map_buffer[i] = NULL;
 	i = -1;
 	while (par->map_buffer[++i] != NULL
 	&& (is_identifier(par->map_buffer[i]) || par->map_buffer[i][0] == '\0'))

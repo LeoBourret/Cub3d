@@ -6,7 +6,7 @@
 /*   By: jurichar <jurichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 10:38:08 by jurichar          #+#    #+#             */
-/*   Updated: 2021/02/10 10:33:23 by jurichar         ###   ########.fr       */
+/*   Updated: 2021/02/16 15:58:12 by jurichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	load_image(t_p *p, int *texture, char *path, t_image *img)
 
 	img->img_ptr = mlx_xpm_file_to_image(p->mlx_ptr,
 	path, &img->img_w, &img->img_h);
+	if (!img->img_ptr)
+		error_manager(0,p);
 	img->img_data = (int *)mlx_get_data_addr(img->img_ptr,
 	&img->bpp, &img->size_line, &img->endian);
 	y = -1;
