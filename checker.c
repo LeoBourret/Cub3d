@@ -77,7 +77,6 @@ int		check_missing_info(t_identifier_list *list)
 
 void	check_which_info(char *s, t_p *par)
 {
-	par->info->s2 = NULL;
 	if (*s == 'R')
 		par->info->r = get_data(s);
 	else if (*s == 'F')

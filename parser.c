@@ -83,11 +83,6 @@ int		get_map(char **map, t_p *par)
 
 int		manage_map(int fd, t_p *par, int i)
 {
-	t_identifier_list	*list;
-
-	if (!(list = malloc(sizeof(t_identifier_list))))
-		return (error_manager(0, par));
-	par->info = list;
 	par->map_buffer = ft_realloc_double(par->map_buffer);
 	while (get_next_line(fd, &par->map_buffer[++i]) > 0)
 		par->map_buffer = ft_realloc_double(par->map_buffer);

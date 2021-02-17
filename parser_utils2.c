@@ -84,6 +84,7 @@ char	*get_data(char *s)
 	int		i;
 	char	first_c;
 
+	printf("coucou\n");
 	first_c = *s;
 	while (*s >= 'A' && *s <= 'Z' && *s)
 		s++;

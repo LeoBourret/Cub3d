@@ -55,25 +55,15 @@ void	free_rest_rest(t_p *par)
 
 void	free_rest(t_p *par)
 {
-	if (par->info->r)
 		free(par->info->r);
-	if (par->info->no)
 		free(par->info->no);
-	if (par->info->so)
 		free(par->info->so);
-	if (par->info->we)
 		free(par->info->we);
-	if (par->info->ea)
 		free(par->info->ea);
-	if (par->info->s)
 		free(par->info->s);
-	if (par->info->s2)
 		free(par->info->s2);
-	if (par->info->f)
 		free(par->info->f);
-	if (par->info->c)
 		free(par->info->c);
-	if (par->info)
 		free(par->info);
 	free_rest_rest(par);
 }

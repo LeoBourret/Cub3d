@@ -12,30 +12,20 @@
 
 #include "cub3d.h"
 
-char	**ft_realloc(char **str)
+void	set_info_to_null(t_p *p)
 {
-	char	**new;
-	int		i;
+	t_identifier_list	*list;
 
-	if (!str)
-	{
-		if (!(new = malloc(sizeof(char *) * 2)))
-			return (NULL);
-		new[1] = NULL;
-		return (new);
-	}
-	i = 0;
-	while (str[i])
-		i++;
-	if (!(new = malloc(sizeof(char *) * (i + 2))))
-		return (NULL);
-	i = -1;
-	while (str[++i])
-	{
-		new[i] = ft_strdup(str[i]);
-		free(str[i]);
-	}
-	new[i + 1] = NULL;
-	free(str);
-	return (new);
+	if (!(list = malloc(sizeof(t_identifier_list))))
+		error_manager(0, p);
+	p->info = list;
+	p->info->r = NULL;
+	p->info->no = NULL;
+	p->info->so = NULL;
+	p->info->we = NULL;
+	p->info->ea = NULL;
+	p->info->s = NULL;
+	p->info->s2 = NULL;
+	p->info->f = NULL;
+	p->info->c = NULL;
 }

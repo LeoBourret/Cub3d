@@ -22,7 +22,8 @@ parser.c \
 parser_utils1.c \
 parser_utils2.c \
 manage_args.c \
-save.c
+save.c \
+memory.c
 
 OBJSRCS = $(SRCS:.c=.o) 
 

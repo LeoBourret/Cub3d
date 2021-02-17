@@ -179,6 +179,7 @@ int			main(int ac, char **av)
 	int fd;
 
 	p = mlx_first();
+	set_info_to_null(p);
 	manage_args(ac, av, p);
 	fd = open(av[1], O_RDONLY);
 	if (fd < 1)
