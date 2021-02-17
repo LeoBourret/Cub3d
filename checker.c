@@ -34,10 +34,7 @@ int		check_file(char *file)
 	int fd;
 
 	if (ft_strncmp(file + ft_strlen(file) - 4, ".xpm", 4) != 0)
-	{
-		printf("check file\n");
 		return (0);
-	}
 	fd = open(file, O_RDONLY);
 	if (fd > 0)
 	{
