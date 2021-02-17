@@ -75,23 +75,23 @@ int		check_missing_info(t_identifier_list *list)
 void	check_which_info(char *s, t_p *par)
 {
 	if (*s == 'R')
-		par->info->r = get_data(s);
+		par->info->r = get_data(s, par);
 	else if (*s == 'F')
-		par->info->f = get_data(s);
+		par->info->f = get_data(s, par);
 	else if (*s == 'C')
-		par->info->c = get_data(s);
+		par->info->c = get_data(s, par);
 	else if (*s == 'N' && *(s + 1) == 'O')
-		par->info->no = get_data(s);
+		par->info->no = get_data(s, par);
 	else if (*s == 'S' && *(s + 1) == 'O')
-		par->info->so = get_data(s);
+		par->info->so = get_data(s, par);
 	else if (*s == 'W' && *(s + 1) == 'E')
-		par->info->we = get_data(s);
+		par->info->we = get_data(s, par);
 	else if (*s == 'E' && *(s + 1) == 'A')
-		par->info->ea = get_data(s);
+		par->info->ea = get_data(s, par);
 	else if (*s == 'S' && *(s + 1) == '2')
-		par->info->s2 = get_data(s);
+		par->info->s2 = get_data(s, par);
 	else if (*s == 'S')
-		par->info->s = get_data(s);
+		par->info->s = get_data(s, par);
 }
 
 int		check_rgb(char *s)

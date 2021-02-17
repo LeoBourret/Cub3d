@@ -78,7 +78,7 @@ void	refill_map(t_p *par)
 	realloc_map(par);
 }
 
-char	*get_data(char *s)
+char	*get_data(char *s, t_p *p)
 {
 	char	*new;
 	int		i;
@@ -97,7 +97,7 @@ char	*get_data(char *s)
 	while (s[++i])
 		if (first_c == 'R' && !((s[i] >= '0'
 		&& s[i] <= '9') || (s[i] == ' ')))
-			return (NULL);
+			error_manager(-1, p);
 	if (!(new = malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	i = -1;

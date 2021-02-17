@@ -229,7 +229,7 @@ void			rot_left(t_p *p, double rs);
 void			rot_right(t_p *p, double rs);
 void			draw_line(t_p *p);
 int				get_next_line(int fd, char **line);
-char			*get_data(char *s);
+char			*get_data(char *s, t_p *p);
 void			copy_buffer_into_map(char **map, t_p *par);
 void			free_prog(t_p *par);
 int				manage_map(int fd, t_p *par, int i);
