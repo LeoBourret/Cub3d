@@ -49,8 +49,8 @@ int		check_missing_info(t_identifier_list *list)
 {
 	int i;
 
-	i = skip_space(0, list->r);
-	i = skip_nb(i, list->r);
+	if (list->r)
+		i = skip_nb(skip_space(0, list->r), list->r);
 	if (!list->r || ft_atoi(list->r) < 1 || ft_atoi(&list->r[i]) < 1)
 		return (-1);
 	if (!list->no || !check_file(list->no))
