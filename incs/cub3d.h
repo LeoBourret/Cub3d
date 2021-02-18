@@ -6,7 +6,7 @@
 /*   By: jurichar <jurichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 09:41:15 by jurichar          #+#    #+#             */
-/*   Updated: 2021/02/18 13:45:00 by jurichar         ###   ########.fr       */
+/*   Updated: 2021/02/18 15:23:24 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ typedef struct	s_draw
 	int ex;
 }				t_draw;
 
-typedef struct s_identifier_list
+typedef struct	s_identifier_list
 {
 	char	*r;
 	char	*no;
@@ -138,64 +138,64 @@ typedef struct s_identifier_list
 	int		height;
 	int		sp_nb;
 	char	spawn_dir;
-	int	spawn_coord[2];
+	int		spawn_coord[2];
 }				t_identifier_list;
 
-typedef struct 	s_resol
+typedef struct	s_resol
 {
-	int		width;
-	int		height;
+	int width;
+	int height;
 }				t_resol;
 
-typedef struct 	s_rgb
+typedef struct	s_rgb
 {
 	int		r;
 	int		g;
 	int		b;
 	int		c;
 	int		f;
-}				t_rgb;	
+}				t_rgb;
 
 typedef struct	s_p
 {
-	void		*mlx_ptr;
-	void		*win_ptr;
-	t_image		img;
-	int			screen_s_x;
-	int			screen_s_y;
-	char 		**map_buffer;
-	char 		**map;
-	t_sprite 	*map_sp;
-	t_resol		res;
-	int			sp_num;
-	char		**map_data;
-	double		pos_x;
-	double		pos_y;
-	double		start_x;
-	double		start_y;
-	double		dir_x;
-	double		dir_y;
-	double		plane_x;
-	double		plane_y;
-	t_keys		keys;
-	int			**buf;
-	double		*z_buf;
-	int			*sprite_order;
-	double		*sprite_dist;
-	int			nb_texture;
-	int			**texture;
-	double		move_speed;
-	double		boost;
-	double		rot_speed;
-	t_engine	eng;
-	t_texture	tex;
-	t_sinit		si;
-	t_draw		dw;
-	t_save		*save;
-	int			v_mov_sc;
-	t_identifier_list *info;
-	t_rgb		rgb;
-	int			invert;
+	void				*mlx_ptr;
+	void				*win_ptr;
+	t_image				img;
+	int					screen_s_x;
+	int					screen_s_y;
+	char				**map_buffer;
+	char				**map;
+	t_sprite			*map_sp;
+	t_resol				res;
+	int					sp_num;
+	char				**map_data;
+	double				pos_x;
+	double				pos_y;
+	double				start_x;
+	double				start_y;
+	double				dir_x;
+	double				dir_y;
+	double				plane_x;
+	double				plane_y;
+	t_keys				keys;
+	int					**buf;
+	double				*z_buf;
+	int					*sprite_order;
+	double				*sprite_dist;
+	int					nb_texture;
+	int					**texture;
+	double				move_speed;
+	double				boost;
+	double				rot_speed;
+	t_engine			eng;
+	t_texture			tex;
+	t_sinit				si;
+	t_draw				dw;
+	t_save				*save;
+	int					v_mov_sc;
+	t_identifier_list	*info;
+	t_rgb				rgb;
+	int					invert;
 }				t_p;
 
 void			exit_all (t_p *p);
