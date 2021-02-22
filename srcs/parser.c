@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurichar <jurichar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/15 16:49:10 by jurichar          #+#    #+#             */
-/*   Updated: 2021/02/19 10:28:47 by jurichar         ###   ########.fr       */
+/*   Created: 2021/01/15 16:49:10 by lebourre          #+#    #+#             */
+/*   Updated: 2021/02/19 10:28:47 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,18 @@ int		get_map(char **map, t_p *par)
 
 int		manage_map(int fd, t_p *par, int i)
 {
+	int ret;
+
 	par->map_buffer = ft_realloc_double(par->map_buffer);
-	while (get_next_line(fd, &par->map_buffer[++i]) > 0)
+	while ((ret = get_next_line(fd, &par->map_buffer[++i])) > 0)
 		par->map_buffer = ft_realloc_double(par->map_buffer);
-	if (get_next_line(fd, &par->map_buffer[i]) < 0)
+	if (ret < 0)
 		return (error_manager(19, par));
 	else
+	{
+		free(par->map_buffer[i]);
 		par->map_buffer[i] = NULL;
+	}
 	i = -1;
 	while (par->map_buffer[++i] != NULL
 	&& (is_identifier(par->map_buffer[i]) || par->map_buffer[i][0] == '\0'))
