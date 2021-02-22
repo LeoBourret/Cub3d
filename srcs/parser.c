@@ -69,6 +69,7 @@ int		get_map(char **map, t_p *par)
 	i = -1;
 	while (map[++i])
 	{
+		par->info->height = i;
 		ret = check_line(map, i, par);
 		if (ret < 1)
 			return (ret);

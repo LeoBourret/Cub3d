@@ -75,8 +75,7 @@ void	free_prog(t_p *par)
 	i = -1;
 	if (par->map_buffer)
 	{
-		while (par->map_buffer[++i]
-		&& (is_identifier(par->map_buffer[i]) || par->map_buffer[i][0] == '\0'))
+		while (par->map_buffer[++i])
 			free(par->map_buffer[i]);
 		free(par->map_buffer);
 	}
