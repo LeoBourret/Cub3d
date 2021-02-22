@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jurichar <jurichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 15:04:01 by jurichar          #+#    #+#             */
-/*   Updated: 2021/02/19 10:36:29 by jurichar         ###   ########.fr       */
+/*   Created: 2020/11/18 15:04:01 by lebourre          #+#    #+#             */
+/*   Updated: 2021/02/04 15:52:14 by jurichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ void			ft_lstadd_back(t_list **alst, t_list *new_list);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-char			*ft_realloc(char *str, int buffer_size);
-char			**ft_realloc_double(char **str);
+char            *ft_realloc(char *str, int buffer_size);
+char            **ft_realloc_double(char **str);
 #endif
