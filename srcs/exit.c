@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurichar <jurichar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 10:21:13 by lebourre          #+#    #+#             */
-/*   Updated: 2021/02/17 15:44:25 by jurichar         ###   ########.fr       */
+/*   Updated: 2021/02/19 10:34:36 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,7 @@ void	free_prog(t_p *par)
 	i = -1;
 	if (par->map_buffer)
 	{
-		while (par->map_buffer[++i]
-		&& (is_identifier(par->map_buffer[i]) || par->map_buffer[i][0] == '\0'))
+		while (par->map_buffer[++i])
 			free(par->map_buffer[i]);
 		free(par->map_buffer);
 	}

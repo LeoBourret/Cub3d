@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_manager.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurichar <jurichar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 10:38:08 by jurichar          #+#    #+#             */
-/*   Updated: 2021/02/18 14:11:49 by jurichar         ###   ########.fr       */
+/*   Created: 2021/01/28 10:38:08 by lebourre          #+#    #+#             */
+/*   Updated: 2021/02/19 10:03:01 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	load_texture(t_p *p)
 	load_image(p, p->texture[0], p->info->no, &img);
 	load_image(p, p->texture[1], p->info->so, &img);
 	load_image(p, p->texture[2], p->info->s, &img);
-	load_image(p, p->texture[3], p->info->s2, &img);
+	if (p->info->s2)
+		load_image(p, p->texture[3], p->info->s2, &img);
 	load_image(p, p->texture[4], p->info->ea, &img);
 	load_image(p, p->texture[5], p->info->we, &img);
 }

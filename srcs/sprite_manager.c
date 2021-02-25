@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_manager.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurichar <jurichar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 15:35:21 by jurichar          #+#    #+#             */
-/*   Updated: 2021/02/18 11:15:43 by jurichar         ###   ########.fr       */
+/*   Created: 2021/01/28 15:35:21 by lebourre          #+#    #+#             */
+/*   Updated: 2021/02/19 10:29:21 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	init_sp(t_p *p)
 	{
 		y = -1;
 		while (++y < p->info->width)
-			if (p->map[x][y] == '2')
+			if (p->map[x][y] == '2' || p->map[x][y] == '3')
 			{
 				p->map_sp[z].y = y + 0.5;
 				p->map_sp[z].x = x + 0.5;
-				p->map_sp[z].tex = 2;
+				p->map_sp[z].tex = p->map[x][y] - 48;
 				z++;
 			}
 	}

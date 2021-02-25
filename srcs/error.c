@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurichar <jurichar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 16:32:39 by jurichar          #+#    #+#             */
-/*   Updated: 2021/02/17 15:40:30 by jurichar         ###   ########.fr       */
+/*   Created: 2021/01/18 16:32:39 by lebourre          #+#    #+#             */
+/*   Updated: 2021/02/19 10:27:59 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ char	**gen_error_list(void)
 int		error_manager(int error, t_p *par)
 {
 	char	**s_error;
+	(void)par;
 
 	if (error == 1)
 		return (1);
