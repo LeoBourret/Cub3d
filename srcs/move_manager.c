@@ -6,7 +6,7 @@
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 11:30:10 by lebourre          #+#    #+#             */
-/*   Updated: 2021/02/19 10:28:38 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/02/25 23:27:29 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,20 @@ void	rot_right(t_p *p, double rs)
 void	straf_left(t_p *p, double ms)
 {
 	if (p->map[(int)p->pos_x]
-	[(int)(p->pos_y - p->plane_y * ms)] != '1')
+	[(int)(p->pos_y - p->plane_y * ms)] == '0')
 		p->pos_y -= p->plane_y * ms;
 	if (p->map[(int)(p->pos_x - p->plane_x * ms)]
-	[(int)p->pos_y] != '1')
+	[(int)p->pos_y] == '0')
 		p->pos_x -= p->plane_x * ms;
 }
 
 void	straf_right(t_p *p, double ms)
 {
 	if (p->map[(int)p->pos_x]
-	[(int)(p->pos_y + p->plane_y * ms)] != '1')
+	[(int)(p->pos_y + p->plane_y * ms)] == '0')
 		p->pos_y += p->plane_y * ms;
 	if (p->map
 	[(int)(p->pos_x + p->plane_x * ms)]
-	[(int)p->pos_y] != '1')
+	[(int)p->pos_y] == '0')
 		p->pos_x += p->plane_x * ms;
 }

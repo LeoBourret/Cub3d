@@ -6,7 +6,7 @@
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:51:38 by lebourre          #+#    #+#             */
-/*   Updated: 2021/02/19 10:28:19 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/02/25 23:25:45 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	init_ter(t_p *p)
 	p->pos_y = 0;
 	p->eng.de = 0;
 	p->eng.ds = 0;
-	p->move_speed = 0.05;
+	p->move_speed = 0.049;
 	p->rot_speed = 0.05;
 	p->boost = 2.5;
 }
