@@ -57,8 +57,8 @@ char	**gen_error_list(void)
 int		error_manager(int error, t_p *par)
 {
 	char	**s_error;
-	(void)par;
 
+	(void)par;
 	if (error == 1)
 		return (1);
 	s_error = gen_error_list();
