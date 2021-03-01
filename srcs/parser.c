@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include <stdio.h>
 
 void	set_spawn_info(char **map, int i, int j, t_p *par)
 {

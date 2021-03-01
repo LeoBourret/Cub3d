@@ -56,6 +56,5 @@ void		draw_line(t_p *p)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(
-		p->mlx_ptr, p->win_ptr, p->img.img_ptr, 0, 0);
+	mlx_put_image_to_window(p->mlx_ptr, p->win_ptr, p->img.img_ptr, 0, 0);
 }

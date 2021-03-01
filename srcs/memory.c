@@ -29,3 +29,12 @@ void	set_info_to_null(t_p *p)
 	p->info->f = NULL;
 	p->info->c = NULL;
 }
+
+void	*ft_malloc(int size, t_p *p)
+{
+	void *ptr;
+
+	if (!(ptr = malloc(size)))
+		error_manager(0, p);
+	return (ptr);
+}

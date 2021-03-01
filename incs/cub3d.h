@@ -255,4 +255,5 @@ void			sort_sprites(int *order, double *dist, int amount);
 void			manage_args(int ac, char **av, t_p *par);
 void			manage_save(t_p *p);
 void			set_info_to_null(t_p *p);
+void			*ft_malloc(int size, t_p *p);
 #endif

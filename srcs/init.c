@@ -68,7 +68,7 @@ void	init_bis(t_p *p)
 
 	i = -1;
 	while (++i < p->res.height)
-		p->buf[i] = (int *)malloc(sizeof(int) * p->res.width);
+		p->buf[i] = (int *)ft_malloc(sizeof(int) * p->res.width, p);
 	i = -1;
 	while (++i < p->res.height)
 	{
@@ -76,10 +76,10 @@ void	init_bis(t_p *p)
 		while (++j < p->res.width)
 			p->buf[i][j] = 0;
 	}
-	p->texture = (int **)malloc(sizeof(int *) * p->nb_texture);
+	p->texture = (int **)ft_malloc(sizeof(int *) * p->nb_texture, p);
 	i = -1;
 	while (++i < p->nb_texture)
-		p->texture[i] = (int *)malloc(sizeof(int) * (T_H * T_W));
+		p->texture[i] = (int *)ft_malloc(sizeof(int) * (T_H * T_W), p);
 	i = -1;
 	while (++i < p->nb_texture)
 	{
@@ -98,14 +98,11 @@ void	init(t_p *p)
 	&p->img.bpp, &p->img.endian, &p->img.size_line);
 	init_pos(p);
 	p->nb_texture = 11;
-	p->buf = (int **)malloc(sizeof(int *) * p->res.height);
-	p->z_buf = (double *)malloc(sizeof(double) * p->res.width);
-	p->map_sp = malloc(sizeof(t_sprite) * p->info->sp_nb);
-	p->sprite_dist = (double *)malloc(sizeof(double) * p->info->sp_nb);
-	p->sprite_order = (int *)malloc(sizeof(int) * p->info->sp_nb);
-	if ((p->buff || p->z_buf || p->map_sp || p->sprite_dist || p->sprite_order
-	|| p->win_ptr || p->img.img_ptr) == NULL)
-		error_manager(0, p);
+	p->buf = (int **)ft_malloc(sizeof(int *) * p->res.height, p);
+	p->z_buf = (double *)ft_malloc(sizeof(double) * p->res.width, p);
+	p->map_sp = (t_sprite *)ft_malloc(sizeof(t_sprite) * p->info->sp_nb, p);
+	p->sprite_dist = (double *)ft_malloc(sizeof(double) * p->info->sp_nb, p);
+	p->sprite_order = (int *)ft_malloc(sizeof(int) * p->info->sp_nb, p);
 	init_bis(p);
 }
 

@@ -40,21 +40,20 @@ void	rot_right(t_p *p, double rs)
 
 void	straf_left(t_p *p, double ms)
 {
-	if (p->map[(int)p->pos_x]
-	[(int)(p->pos_y - p->plane_y * ms)] == '0')
+	if (p->map[(int)p->pos_x][(int)(p->pos_y - p->plane_y * ms)] == '0'
+	|| p->map[(int)p->pos_x][(int)(p->pos_y - p->plane_y * ms)] == '3')
 		p->pos_y -= p->plane_y * ms;
-	if (p->map[(int)(p->pos_x - p->plane_x * ms)]
-	[(int)p->pos_y] == '0')
+	if (p->map[(int)(p->pos_x - p->plane_x * ms)][(int)p->pos_y] == '0'
+	|| p->map[(int)(p->pos_x - p->plane_x * ms)][(int)p->pos_y] == '3')
 		p->pos_x -= p->plane_x * ms;
 }
 
 void	straf_right(t_p *p, double ms)
 {
-	if (p->map[(int)p->pos_x]
-	[(int)(p->pos_y + p->plane_y * ms)] == '0')
+	if (p->map[(int)p->pos_x][(int)(p->pos_y + p->plane_y * ms)] == '0'
+	|| p->map[(int)p->pos_x][(int)(p->pos_y + p->plane_y * ms)] == '3')
 		p->pos_y += p->plane_y * ms;
-	if (p->map
-	[(int)(p->pos_x + p->plane_x * ms)]
-	[(int)p->pos_y] == '0')
+	if (p->map[(int)(p->pos_x + p->plane_x * ms)][(int)p->pos_y] == '0'
+	|| p->map[(int)(p->pos_x + p->plane_x * ms)][(int)p->pos_y] == '3')
 		p->pos_x += p->plane_x * ms;
 }

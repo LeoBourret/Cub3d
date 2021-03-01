@@ -36,8 +36,10 @@ void	free_rest_rest_rest(t_p *par)
 			free(par->texture[i]);
 		free(par->texture);
 	}
-	if (par->save)
-		free(par->save);
+	if (par->win_ptr)
+		free(par->win_ptr);
+	if (par->mlx_ptr)
+		free(par->mlx_ptr);
 	if (par)
 		free(par);
 }
@@ -52,6 +54,8 @@ void	free_rest_rest(t_p *par)
 		free(par->sprite_dist);
 	if (par->sprite_order)
 		free(par->sprite_order);
+	if (par->save)
+		free(par->save);
 	free_rest_rest_rest(par);
 }
 
@@ -80,19 +84,19 @@ void	free_prog(t_p *par)
 	if (par->map_buffer)
 	{
 		while (++i < par->buff_size)
-		{
 			free(par->map_buffer[i]);
-		}
 		free(par->map_buffer);
 	}
 	i = -1;
 	if (par->map)
 	{
 		while (par->map[++i])
-		{
 			free(par->map[i]);
-		}
 		free(par->map);
 	}
+	if (par->mlx_ptr && par->img.img_ptr)
+		mlx_destroy_image(par->mlx_ptr, par->img.img_ptr);
+	if (par->mlx_ptr && par->img.img_ptr)
+		mlx_destroy_window(par->mlx_ptr, par->win_ptr);
 	free_rest(par);
 }
