@@ -76,14 +76,19 @@ void	free_prog(t_p *par)
 	if (par->map_buffer)
 	{
 		while (par->map_buffer[++i])
-			free(par->map_buffer[i]);
+		{
+			if (par->map_buffer[i][0] == '\0')
+				free(par->map_buffer[i]);
+		}
 		free(par->map_buffer);
 	}
 	i = -1;
 	if (par->map)
 	{
 		while (++i < par->info->height)
+		{
 			free(par->map[i]);
+		}
 		free(par->map);
 	}
 	free_rest(par);

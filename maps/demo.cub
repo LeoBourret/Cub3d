@@ -6,8 +6,9 @@ EA ./images/wall.xpm
 
 S  ./images/pillar.xpm
 S2  ./images/greenlight.xpm
-
 C  0, 13, 123
+
+
 F  100, 100, 100
 
 111111111111111111111111111111111111111111111

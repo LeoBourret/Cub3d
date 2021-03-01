@@ -28,7 +28,11 @@ void	copy_buffer_into_map(char **map, t_p *par)
 
 	i = -1;
 	while (map[++i] && map[i][0] != '\0')
-		par->map[i] = map[i];
+	{
+		par->map[i] = ft_strdup(map[i]);
+		free(map[i]);
+		map[i] = NULL;
+	}
 	par->map[i] = NULL;
 }
 
@@ -46,7 +50,6 @@ void	realloc_map(t_p *par)
 			while (par->map[i][j])
 				j++;
 			par->map[i] = ft_realloc(par->map[i], par->info->width);
-			par->map_buffer[i] = NULL;
 			while (j < par->info->width)
 				par->map[i][j++] = '1';
 			par->map[i][j] = '\0';

@@ -92,6 +92,8 @@ void	check_which_info(char *s, t_p *par)
 		par->info->s2 = get_data(s, par);
 	else if (*s == 'S')
 		par->info->s = get_data(s, par);
+	free(s);
+	s = NULL;
 }
 
 int		check_rgb(char *s)
