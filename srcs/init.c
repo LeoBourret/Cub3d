@@ -79,8 +79,7 @@ void	init_bis(t_p *p)
 	p->texture = (int **)malloc(sizeof(int *) * p->nb_texture);
 	i = -1;
 	while (++i < p->nb_texture)
-		p->texture[i] =
-		(int *)malloc(sizeof(int) * (T_H * T_W));
+		p->texture[i] = (int *)malloc(sizeof(int) * (T_H * T_W));
 	i = -1;
 	while (++i < p->nb_texture)
 	{
@@ -104,6 +103,9 @@ void	init(t_p *p)
 	p->map_sp = malloc(sizeof(t_sprite) * p->info->sp_nb);
 	p->sprite_dist = (double *)malloc(sizeof(double) * p->info->sp_nb);
 	p->sprite_order = (int *)malloc(sizeof(int) * p->info->sp_nb);
+	if ((p->buff || p->z_buf || p->map_sp || p->sprite_dist || p->sprite_order
+	|| p->win_ptr || p->img.img_ptr) == NULL)
+		error_manager(0, p);
 	init_bis(p);
 }
 

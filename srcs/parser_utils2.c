@@ -17,7 +17,7 @@ int		map_size(char **map)
 	int i;
 
 	i = 0;
-	while (map[i] && map[i][0] != '\0')
+	while (map[i])
 		i++;
 	return (i);
 }
@@ -27,7 +27,7 @@ void	copy_buffer_into_map(char **map, t_p *par)
 	int i;
 
 	i = -1;
-	while (map[++i] && map[i][0] != '\0')
+	while (map[++i])
 	{
 		par->map[i] = ft_strdup(map[i]);
 		free(map[i]);
@@ -44,12 +44,13 @@ void	realloc_map(t_p *par)
 	i = -1;
 	while (par->map[++i])
 	{
+		if (par->map[i][0])
+			par->map[i] = ft_realloc(par->map[i], par->info->width);
 		if ((int)ft_strlen(par->map[i]) < par->info->width)
 		{
 			j = 0;
 			while (par->map[i][j])
 				j++;
-			par->map[i] = ft_realloc(par->map[i], par->info->width);
 			while (j < par->info->width)
 				par->map[i][j++] = '1';
 			par->map[i][j] = '\0';

@@ -30,7 +30,8 @@ void	set_res(t_p *p)
 
 	res = p->info->r;
 	i = -1;
-	s = malloc(sizeof(char) * ft_strlen(res));
+	if (!(s = malloc(sizeof(char) * ft_strlen(res))))
+		error_manager(0, p);
 	while (res[++i] != ' ')
 	{
 		s[i] = res[i];
@@ -68,7 +69,7 @@ int		main(int ac, char **av)
 	fd = open(av[1], O_RDONLY);
 	if (fd < 1)
 		exit_all(p);
-	manage_map(fd, p, -1);
+	manage_map(fd, p, -1, -1);
 	close(fd);
 	mlx_get_screen_size(p->mlx_ptr, &p->screen_s_x, &p->screen_s_y);
 	set_res(p);

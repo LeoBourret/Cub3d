@@ -39,18 +39,18 @@ char	**gen_error_list(void)
 		return (NULL);
 	error[0] = "Error: malloc can't allocate the memory\n";
 	error[1] = "Error: resolution not set or not setp properly. \
-	Resolution can only contain numbers and spaces\n";
+Resolution can only contain numbers and spaces\n";
 	error[2] = "Error: north texture path not set or incorrect\n";
 	error[3] = "Error: south texture path not set or incorrect\n";
 	error[4] = "Error: west texture path not set or incorrect\n";
 	error[5] = "Error: east texture path not set or incorrect\n";
 	error[6] = "Error: sprite texture path not set or incorrect\n";
 	error[7] = "Error: floor color not set or incorrect. RGB must \
-	contain numbers, and comma in between (spaces are allowed, \
-	but commas are mandatory).\n";
+contain numbers, and comma in between (spaces are allowed, \
+but commas are mandatory).\n";
 	error[8] = "Error: ceilling color not set or incorrect. \
-	RGB must contain numbers, and one comma in between \
-	(spaces are allowed, but commas are mandatory).\n";
+RGB must contain numbers, and one comma in between \
+(spaces are allowed, but commas are mandatory).\n";
 	return (gen_error_list_re(error));
 }
 

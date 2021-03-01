@@ -38,6 +38,8 @@ void	free_rest_rest_rest(t_p *par)
 	}
 	if (par->save)
 		free(par->save);
+	if (par)
+		free(par);
 }
 
 void	free_rest_rest(t_p *par)
@@ -65,6 +67,8 @@ void	free_rest(t_p *par)
 	free(par->info->f);
 	free(par->info->c);
 	free(par->info);
+	if (par->win_ptr)
+		free(par->win_ptr);
 	free_rest_rest(par);
 }
 
@@ -75,17 +79,16 @@ void	free_prog(t_p *par)
 	i = -1;
 	if (par->map_buffer)
 	{
-		while (par->map_buffer[++i])
+		while (++i < par->buff_size)
 		{
-			if (par->map_buffer[i][0] == '\0')
-				free(par->map_buffer[i]);
+			free(par->map_buffer[i]);
 		}
 		free(par->map_buffer);
 	}
 	i = -1;
 	if (par->map)
 	{
-		while (++i < par->info->height)
+		while (par->map[++i])
 		{
 			free(par->map[i]);
 		}

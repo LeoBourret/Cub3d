@@ -196,6 +196,7 @@ typedef struct	s_p
 	t_identifier_list	*info;
 	t_rgb				rgb;
 	int					invert;
+	int					buff_size;
 }				t_p;
 
 void			exit_all (t_p *p);
@@ -235,7 +236,7 @@ int				get_next_line(int fd, char **line);
 char			*get_data(char *s, t_p *p);
 void			copy_buffer_into_map(char **map, t_p *par);
 void			free_prog(t_p *par);
-int				manage_map(int fd, t_p *par, int i);
+int				manage_map(int fd, t_p *par, int i, int j);
 int				error_manager(int error, t_p *par);
 int				is_map_elem(char c);
 int				is_map_elem(char c);
@@ -247,7 +248,7 @@ int				check_rgb(char *s);
 int				check_file(char *file);
 int				check_map_error(char **map, int i, int j, int inside);
 int				check_missing_info(t_identifier_list *list);
-void			check_which_info(char *s, t_p *par);
+void			check_which_info(char *s, t_p *par, int index);
 int				map_size(char **map);
 void			copy_buffer_into_map(char **map, t_p *par);
 void			sort_sprites(int *order, double *dist, int amount);

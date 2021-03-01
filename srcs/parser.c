@@ -62,7 +62,7 @@ int		get_map(char **map, t_p *par)
 	ret = 1;
 	par->info->spawn_dir = 0;
 	par->info->sp_nb = 0;
-	if (!map[0])
+	if (!map[0] || !map)
 		return (-9);
 	if (!(par->map = malloc(sizeof(char *) * (map_size(map) + 1))))
 		return (0);
@@ -70,10 +70,9 @@ int		get_map(char **map, t_p *par)
 	while (map[++i])
 	{
 		par->info->height = i;
-		ret = check_line(map, i, par);
-		if (ret < 1)
+		if ((ret = check_line(map, i, par)) < 1)
 			return (ret);
-		par->map[i] = map[i];
+		par->map[i] = ft_strdup(map[i]);
 	}
 	par->map[i] = NULL;
 	if (par->info->spawn_dir == 0)
@@ -82,7 +81,7 @@ int		get_map(char **map, t_p *par)
 	return (1);
 }
 
-int		manage_map(int fd, t_p *par, int i)
+int		manage_map(int fd, t_p *par, int i, int j)
 {
 	int ret;
 
@@ -96,17 +95,17 @@ int		manage_map(int fd, t_p *par, int i)
 		free(par->map_buffer[i]);
 		par->map_buffer[i] = NULL;
 	}
-	i = -1;
-	while (par->map_buffer[++i] != NULL
-	&& (is_identifier(par->map_buffer[i]) || par->map_buffer[i][0] == '\0'))
-		if (is_identifier(par->map_buffer[i]))
-			check_which_info(par->map_buffer[i], par);
-	if (par->map_buffer[i] != NULL && (!is_identifier(par->map_buffer[i])
-	&& par->map_buffer[i][0] != '\0') && !is_map_elem(par->map_buffer[i][0]))
+	par->buff_size = map_size(par->map_buffer);
+	while (par->map_buffer[++j] != NULL
+	&& (is_identifier(par->map_buffer[j]) || par->map_buffer[j][0] == '\0'))
+		if (is_identifier(par->map_buffer[j]))
+			check_which_info(par->map_buffer[j], par, j);
+	if (par->map_buffer[j] != NULL && (!is_identifier(par->map_buffer[j])
+	&& par->map_buffer[j][0] != '\0') && !is_map_elem(par->map_buffer[j][0]))
 		return (error_manager(-14, par));
 	if (check_missing_info(par->info) < 0)
 		return (error_manager(check_missing_info(par->info), par));
-	while (par->map_buffer[i] && par->map_buffer[i][0] == '\0')
-		i++;
-	return (error_manager(get_map(&par->map_buffer[i], par), par));
+	while (par->map_buffer[j] && par->map_buffer[j][0] == '\0')
+		j++;
+	return (error_manager(get_map(&par->map_buffer[j], par), par));
 }

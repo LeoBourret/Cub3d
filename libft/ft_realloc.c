@@ -30,5 +30,6 @@ char	*ft_realloc(char *str, int buffer_size)
 		new[i] = str[i];
 	new[i + 1] = '\0';
 	free(str);
+	str = NULL;
 	return (new);
 }

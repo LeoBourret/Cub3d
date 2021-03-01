@@ -72,7 +72,7 @@ int		check_missing_info(t_identifier_list *list)
 	return (1);
 }
 
-void	check_which_info(char *s, t_p *par)
+void	check_which_info(char *s, t_p *par, int index)
 {
 	if (*s == 'R')
 		par->info->r = get_data(s, par);
@@ -92,8 +92,8 @@ void	check_which_info(char *s, t_p *par)
 		par->info->s2 = get_data(s, par);
 	else if (*s == 'S')
 		par->info->s = get_data(s, par);
-	free(s);
-	s = NULL;
+	free(par->map_buffer[index]);
+	par->map_buffer[index] = NULL;
 }
 
 int		check_rgb(char *s)
