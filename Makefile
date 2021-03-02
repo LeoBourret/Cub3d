@@ -19,6 +19,7 @@ SRCS_FILES = 	color_manager.c \
 	sprite_manager.c \
 	texture_manager.c \
 	checker.c \
+	checker2.c \
 	error.c \
 	exit.c \
 	get_next_line.c \

@@ -22,7 +22,7 @@ void	set_spawn_info(char **map, int i, int j, t_p *par)
 int		set_inside(char **map, int i, int j, int inside)
 {
 	if (inside == 0 && (map[i][j] == '0' || is_spawn(map[i][j])
-	|| map[i][j] == '2'))
+	|| map[i][j] == '2' || map[i][j] == '3'))
 		inside = 1;
 	else if (inside == 1 && map[i][j] == '1')
 		inside = 0;
@@ -68,6 +68,8 @@ int		get_map(char **map, t_p *par)
 	i = -1;
 	while (map[++i])
 	{
+		if (map[i][0] == '\0')
+			check_buffer_rest(&map[i], par);
 		par->info->height = i;
 		if ((ret = check_line(map, i, par)) < 1)
 			return (ret);
