@@ -42,7 +42,7 @@ void	realloc_map(t_p *par)
 	int j;
 
 	i = -1;
-	while (par->map[++i][0])
+	while (par->map[++i])
 	{
 		par->map[i] = ft_realloc(par->map[i], par->info->width);
 		if ((int)ft_strlen(par->map[i]) < par->info->width)

@@ -40,13 +40,13 @@ int		check_line(char **map, int i, t_p *par)
 	{
 		inside = set_inside(map, i, j, inside);
 		if (!is_map_elem(map[i][j]))
-			return (-10);
+			error_manager(10, par);
 		if (!check_map_error(map, i, j, inside))
-			return (-11);
+			error_manager(11, par);
 		if ((is_spawn(map[i][j])) && par->info->spawn_dir == 0)
 			set_spawn_info(map, i, j, par);
 		else if (is_spawn(map[i][j]) && par->info->spawn_dir > 0)
-			return (-12);
+			error_manager(12, par);
 		if (map[i][j] == '2' || map[i][j] == '3')
 			par->info->sp_nb++;
 	}
@@ -56,26 +56,26 @@ int		check_line(char **map, int i, t_p *par)
 int		get_map(char **map, t_p *par)
 {
 	int i;
-	int ret;
 
-	ret = 1;
 	par->info->spawn_dir = 0;
 	par->info->sp_nb = 0;
+	i = 0;
+	while (map[i] && map[i][0])
+		i++;
 	if (!map[0] || !map)
 		return (-9);
-	if (!(par->map = malloc(sizeof(char *) * (map_size(map) + 1))))
+	if (!(par->map = malloc(sizeof(char *) * i + 1)))
 		return (0);
 	i = -1;
-	while (map[++i])
+	while (map[++i] && map[i][0])
 	{
-		if (map[i][0] == '\0')
-			check_buffer_rest(&map[i], par);
 		par->info->height = i;
-		if ((ret = check_line(map, i, par)) < 1)
-			return (ret);
+		check_line(map, i, par);
 		par->map[i] = ft_strdup(map[i]);
 	}
 	par->map[i] = NULL;
+	if (map[i] && map[i][0] == '\0')
+		check_buffer_rest(&map[i], par);
 	if (par->info->spawn_dir == 0)
 		return (-13);
 	refill_map(par);

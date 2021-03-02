@@ -90,7 +90,7 @@ void	free_prog(t_p *par)
 	i = -1;
 	if (par->map)
 	{
-		while (par->map[++i])
+		while (par->map[++i] && par->map[i][0])
 			free(par->map[i]);
 		free(par->map);
 	}
