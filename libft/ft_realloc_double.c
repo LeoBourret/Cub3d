@@ -6,7 +6,7 @@
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 10:41:01 by lebourre          #+#    #+#             */
-/*   Updated: 2021/05/25 14:46:10 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/02/03 10:41:22 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,16 @@ char	**ft_realloc_double(char **str)
 
 	if (!str)
 	{
-		new = malloc(sizeof(char *) * 2);
-		if (new == NULL)
+		if (!(new = malloc(sizeof(char *) * 2)))
 			return (NULL);
 		new[0] = NULL;
 		new[1] = NULL;
 		return (new);
 	}
-	new = malloc(sizeof(char *) * (ft_double_strlen(str) + 2));
-	if (new == NULL)
+	i = 0;
+	while (str[i])
+		i++;
+	if (!(new = malloc(sizeof(char *) * (i + 2))))
 		return (NULL);
 	i = -1;
 	while (str[++i])
@@ -35,7 +36,6 @@ char	**ft_realloc_double(char **str)
 		new[i] = ft_strdup(str[i]);
 		free(str[i]);
 	}
-	new[i] = NULL;
 	new[i + 1] = NULL;
 	free(str);
 	return (new);

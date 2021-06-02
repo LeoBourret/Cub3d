@@ -6,7 +6,7 @@
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 10:42:24 by lebourre          #+#    #+#             */
-/*   Updated: 2021/05/25 14:42:33 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/02/04 15:33:30 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,15 @@ char	*ft_realloc(char *str, int buffer_size)
 
 	if (!str)
 	{
-		new = malloc(sizeof(char) * (buffer_size + 1));
-		if (new == NULL)
+		if (!(new = malloc(sizeof(char) * (buffer_size + 1))))
 			return (NULL);
 		return (new);
 	}
-	new = malloc(sizeof(char *) * (ft_strlen(str) + buffer_size + 1));
-	if (new == NULL)
+	if (!(new = malloc(sizeof(char *) * (ft_strlen(str) + buffer_size + 1))))
 		return (NULL);
 	i = -1;
 	while (str[++i])
 		new[i] = str[i];
-	new[i] = '\0';
 	new[i + 1] = '\0';
 	free(str);
 	str = NULL;
