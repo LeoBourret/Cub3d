@@ -1,0 +1,13 @@
+R  1920 1080
+NO ./images/eagle.xpm
+SO ./images/wood.xpm
+WE ./images/purplestone.xpm
+EA ./images/wall.xpm
+S  ./images/pillar.xpm
+
+S2  ./images/greenlight.xpm
+C  0, 13, 123
+
+
+F  100, 100, 100
+

@@ -6,7 +6,7 @@
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 10:58:26 by lebourre          #+#    #+#             */
-/*   Updated: 2021/02/19 10:28:44 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:25:31 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,13 @@ void	refill_map(t_p *par)
 	realloc_map(par);
 }
 
-char	*get_data(char *s, t_p *p)
+char	*get_data(char *s, t_p *p, char *dest, int i)
 {
 	char	*new;
-	int		i;
 	char	first_c;
 
+	if (dest)
+		free(dest);
 	first_c = *s;
 	while (*s >= 'A' && *s <= 'Z' && *s)
 		s++;
@@ -96,13 +97,12 @@ char	*get_data(char *s, t_p *p)
 		return (NULL);
 	while (*s == ' ')
 		s++;
-	i = -1;
 	while (s[++i])
 		if (first_c == 'R' && !((s[i] >= '0'
 		&& s[i] <= '9') || (s[i] == ' ')))
 			error_manager(-1, p);
 	if (!(new = malloc(sizeof(char) * (i + 1))))
-		return (NULL);
+		error_manager(0, p);
 	i = -1;
 	while (s[++i])
 		new[i] = s[i];

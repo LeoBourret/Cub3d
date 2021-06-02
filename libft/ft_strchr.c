@@ -6,7 +6,7 @@
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:23:35 by lebourre          #+#    #+#             */
-/*   Updated: 2020/11/16 18:23:35 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:50:45 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*ft_strchr(const char *s, int c)
 	i = -1;
 	while (s[++i])
 		if (s[i] == c)
-			return ((char*)&s[i]);
+			return ((char *)&s[i]);
 	if (s[i] == c)
-		return ((char*)&s[i]);
+		return ((char *)&s[i]);
 	return (NULL);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 16:32:39 by lebourre          #+#    #+#             */
-/*   Updated: 2021/02/19 10:27:59 by lebourre         ###   ########.fr       */
+/*   Created: 2021/03/08 11:23:31 by lebourre          #+#    #+#             */
+/*   Updated: 2021/03/08 11:23:55 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 
 char	**gen_error_list_re(char **error)
 {
-	error[9] = "Error: map not found in the .cube file\n";
-	error[10] = "Error: map is not set properly\n";
-	error[11] = "Error: map is not closed properly\n";
-	error[12] = "Error: multiple spawn point found in the map\n";
-	error[13] = "Error: spawn point not found in the map\n";
-	error[14] = "Error: unknown identifier is set\n";
-	error[15] = "Error: incorrect .cub map\n";
-	error[16] = "Error: unknown argument\n";
-	error[17] = "Error: map not given during execution\n";
-	error[18] = "Error: too many argument\n";
-	error[19] = "Error: cannot read file\n";
-	error[20] = "Error: cannot write in save file\n";
-	error[21] = "Error: cannot load xpm file\n";
-	error[22] = "Error: content found after map\n";
+	error[9] = "Error\nmap not found in the .cube file\n";
+	error[10] = "Error\nmap is not set properly\n";
+	error[11] = "Error\nmap is not closed properly or none wall bloc is \
+in contact with a space character\n";
+	error[12] = "Error\nmultiple spawn point found in the map\n";
+	error[13] = "Error\nspawn point not found in the map\n";
+	error[14] = "Error\nunknown identifier is set\n";
+	error[15] = "Error\nincorrect .cub map\n";
+	error[16] = "Error\nunknown argument\n";
+	error[17] = "Error\nmap not given during execution\n";
+	error[18] = "Error\ntoo many argument\n";
+	error[19] = "Error\ncannot read file\n";
+	error[20] = "Error\ncannot write in save file\n";
+	error[21] = "Error\ncannot load xpm file\n";
+	error[22] = "Error\ncontent found after map\n";
 	error[23] = NULL;
 	return (error);
 }
@@ -36,21 +37,21 @@ char	**gen_error_list(void)
 {
 	char **error;
 
-	if (!(error = malloc(sizeof(char *) * 24)))
+	if (!(error = malloc(sizeof(char *) * 25)))
 		return (NULL);
-	error[0] = "Error: malloc can't allocate the memory\n";
-	error[1] = "Error: resolution not set or not setp properly. \
+	error[0] = "Error\nmalloc can't allocate the memory\n";
+	error[1] = "Error\nresolution not set or not setp properly. \
 Resolution can only contain numbers and spaces\n";
-	error[2] = "Error: north texture path not set or incorrect\n";
-	error[3] = "Error: south texture path not set or incorrect\n";
-	error[4] = "Error: west texture path not set or incorrect\n";
-	error[5] = "Error: east texture path not set or incorrect\n";
-	error[6] = "Error: sprite texture path not set or incorrect\n";
-	error[7] = "Error: floor color not set or incorrect. RGB must \
-contain numbers, and comma in between (spaces are allowed, \
-but commas are mandatory).\n";
-	error[8] = "Error: ceilling color not set or incorrect. \
-RGB must contain numbers, and one comma in between \
+	error[2] = "Error\nnorth texture path not set or incorrect\n";
+	error[3] = "Error\nsouth texture path not set or incorrect\n";
+	error[4] = "Error\nwest texture path not set or incorrect\n";
+	error[5] = "Error\neast texture path not set or incorrect\n";
+	error[6] = "Error\nsprite texture path not set or incorrect\n";
+	error[7] = "Error\nfloor color not set or incorrect. RGB must \
+contain three numbers between 0 - 255, and comma in between (spaces are \
+allowed, but commas are mandatory).\n";
+	error[8] = "Error\nceilling color not set or incorrect. \
+RGB must contain three numbers between 0 - 255, and one comma in between \
 (spaces are allowed, but commas are mandatory).\n";
 	return (gen_error_list_re(error));
 }
@@ -65,7 +66,7 @@ int		error_manager(int error, t_p *par)
 	s_error = gen_error_list();
 	if (error < 0)
 		error *= -1;
-	ft_putstr_fd(s_error[error], 0);
+	ft_putstr_fd(s_error[error], 1);
 	free(s_error);
 	s_error = NULL;
 	free_prog(par);

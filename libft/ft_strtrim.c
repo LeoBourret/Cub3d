@@ -6,7 +6,7 @@
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:24:05 by lebourre          #+#    #+#             */
-/*   Updated: 2020/11/21 22:51:29 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:54:09 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	len = ft_strlen(s1) - 1;
 	while (len && ft_strchr(set, s1[len]))
 		len--;
-	new = ft_substr((char*)s1, 0, len + 1);
+	new = ft_substr((char *)s1, 0, len + 1);
 	return (new);
 }

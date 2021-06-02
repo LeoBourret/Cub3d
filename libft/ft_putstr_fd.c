@@ -6,7 +6,7 @@
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:23:28 by lebourre          #+#    #+#             */
-/*   Updated: 2020/11/16 18:23:28 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:41:33 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int len;
-
-	len = ft_strlen(s);
-	write(fd, s, len);
+	write(fd, s, ft_strlen(s));
 }

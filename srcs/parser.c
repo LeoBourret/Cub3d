@@ -6,7 +6,7 @@
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 16:49:10 by lebourre          #+#    #+#             */
-/*   Updated: 2021/02/19 10:28:47 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:52:59 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		check_line(char **map, int i, t_p *par)
 
 	inside = 0;
 	j = -1;
+	par->map[i] = NULL;
 	while (map[i][++j])
 	{
 		inside = set_inside(map, i, j, inside);

@@ -15,6 +15,8 @@
 int		check_map_error(char **map, int i, int j, int inside)
 {
 	if ((i == 0 && map[0][j] != ' ' && map[0][j] != '1')
+	|| (is_map_elem(map[i][j]) == 1 && (map[i + 1] == NULL
+		|| map[i + 1][0] == '\0'))
 	|| (inside == 1 && (map[i][j] == ' ' || map[i][j] == '\0'))
 	|| (inside == 1 && (j == 0 || map[i][j + 1] == '\0'
 		|| map[i][j - 1] == ' '))
@@ -23,8 +25,6 @@ int		check_map_error(char **map, int i, int j, int inside)
 	|| (inside == 0 && is_map_elem(map[i][j] == 1))
 	|| (is_map_elem(map[i][j]) == 1 && map[i][j + 1] == ' ')
 	|| (is_map_elem(map[i][j]) == 1 && map[i + 1] && map[i + 1][j] == ' ')
-	|| (is_map_elem(map[i][j]) == 1 && (map[i + 1] == NULL
-		|| map[i + 1][0] == '\0'))
 	|| (map[i][j] == ' ' && (!map[i + 1] || is_map_elem(map[i + 1][j]) == 1)))
 		return (0);
 	return (1);
@@ -76,23 +76,25 @@ int		check_missing_info(t_identifier_list *list)
 void	check_which_info(char *s, t_p *par, int index)
 {
 	if (*s == 'R')
-		par->info->r = get_data(s, par);
+		par->info->r = get_data(s, par, par->info->r, -1);
 	else if (*s == 'F')
-		par->info->f = get_data(s, par);
+		par->info->f = get_data(s, par, par->info->f, -1);
 	else if (*s == 'C')
-		par->info->c = get_data(s, par);
+		par->info->c = get_data(s, par, par->info->c, -1);
 	else if (*s == 'N' && *(s + 1) == 'O')
-		par->info->no = get_data(s, par);
+		par->info->no = get_data(s, par, par->info->no, -1);
 	else if (*s == 'S' && *(s + 1) == 'O')
-		par->info->so = get_data(s, par);
+		par->info->so = get_data(s, par, par->info->so, -1);
 	else if (*s == 'W' && *(s + 1) == 'E')
-		par->info->we = get_data(s, par);
+		par->info->we = get_data(s, par, par->info->we, -1);
 	else if (*s == 'E' && *(s + 1) == 'A')
-		par->info->ea = get_data(s, par);
+		par->info->ea = get_data(s, par, par->info->ea, -1);
 	else if (*s == 'S' && *(s + 1) == '2')
-		par->info->s2 = get_data(s, par);
+		par->info->s2 = get_data(s, par, par->info->s2, -1);
 	else if (*s == 'S')
-		par->info->s = get_data(s, par);
+		par->info->s = get_data(s, par, par->info->s, -1);
+	else
+		error_manager(23, par);
 	free(par->map_buffer[index]);
 	par->map_buffer[index] = NULL;
 }

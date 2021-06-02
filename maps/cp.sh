@@ -1,0 +1,14 @@
+cp demo.cub res.cub
+cp demo.cub no.cub
+cp demo.cub so.cub
+cp demo.cub we.cub 
+cp demo.cub ea.cub
+cp demo.cub sprite.cub
+cp demo.cub  cel.cub
+cp demo.cub flo.cub
+cp demo.cub top_open.cub
+cp demo.cub bot_open.cub
+cp demo.cub large_open.cub
+cp demo.cub empty_line.cub
+cp demo.cub content_past_map.cub
+cp demo.cub small_open.cub

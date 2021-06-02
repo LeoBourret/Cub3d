@@ -6,17 +6,17 @@
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:21:24 by lebourre          #+#    #+#             */
-/*   Updated: 2020/11/16 18:21:30 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/05/18 11:28:33 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *s)
+long	ft_atoi(const char *s)
 {
-	int i;
-	int res;
-	int neg;
+	int		i;
+	long	res;
+	int		neg;
 
 	i = 0;
 	res = 0;

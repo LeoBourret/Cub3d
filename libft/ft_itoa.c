@@ -6,7 +6,7 @@
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:22:00 by lebourre          #+#    #+#             */
-/*   Updated: 2020/11/21 23:54:02 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:37:21 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	ft_len(long nb)
 {
-	size_t len;
+	size_t	len;
 
 	len = 0;
 	if (nb <= 0)
@@ -30,14 +30,15 @@ static size_t	ft_len(long nb)
 	return (len);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	long		nbr;
 	size_t		len;
 	char		*res;
 
 	len = ft_len(n);
-	if (!(res = malloc(sizeof(char) * len + 1)))
+	res = malloc(sizeof(char) * len + 1);
+	if (res == NULL)
 		return (NULL);
 	res[len--] = '\0';
 	nbr = n;

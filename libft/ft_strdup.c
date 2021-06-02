@@ -6,7 +6,7 @@
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:23:40 by lebourre          #+#    #+#             */
-/*   Updated: 2020/11/20 17:55:53 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:51:30 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ char	*ft_strdup(const char *s)
 	int		i;
 
 	len = ft_strlen(s);
-	if (!(new = malloc(sizeof(char*) * (len + 1))))
+	new = malloc(sizeof(char *) * (len + 1));
+	if (new == NULL)
 		return (NULL);
 	i = -1;
 	while (++i < len)

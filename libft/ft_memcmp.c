@@ -6,13 +6,13 @@
 /*   By: lebourre <lebourre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:22:52 by lebourre          #+#    #+#             */
-/*   Updated: 2020/11/17 17:45:25 by lebourre         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:40:13 by lebourre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const char	*ptr1;
 	const char	*ptr2;
